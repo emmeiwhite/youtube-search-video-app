@@ -1,9 +1,14 @@
 import React from 'react';
+import VideoListItem from './video_list_item';
 
-const VideoList = (props)=>{
+const VideoList = ({videos})=>{
+    const resultVideos = videos.map(video=>{
+        return <VideoListItem video={video}/>
+    })
+
     return(
-        <ul>
-           Total Number Of Videos: {props.videos.length}
+        <ul className="col-md-4 list-group">
+           {resultVideos}
         </ul>
     )
 }
