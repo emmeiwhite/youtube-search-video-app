@@ -8,10 +8,19 @@ const VideoDetail = ({video})=>{
     }
     // console.log(video);
     const videoId = video.id.videoId;
-    const youtube_url = `https://youtube.com/embed/${videoId}`
+    const youtube_url = `https://youtube.com/embed/${videoId}`;
 
     return(
-        <div>{videoId}</div>
+        <div className="video-detail col-md-8">
+            <div className="embed-responsive embed-responsive-16by9">
+                <iframe src={youtube_url} className="embed-responsive-item" title="all we need is an iframe"></iframe>
+            </div>
+
+            <div className="details">
+                <div>{video.snippet.title}</div>
+                <div>{video.snippet.description}</div>
+            </div>
+        </div>
     )
     
    

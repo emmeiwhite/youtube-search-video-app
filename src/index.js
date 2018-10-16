@@ -22,22 +22,30 @@ class App extends Component{
         super(props);
 
         this.state = {
-            videos:[] // Initially there wouldn't be any call made to the API
+            videos:[], // Initially there wouldn't be any call made to the API, 
+            selectedVideo:null
         }
 
         // For now we making the API call here in the constructor only, but it's not a good practice
-        YTSearch({key:API_KEY,term:'Lenovo Laptops 8th Generation'},(videos)=>{ //data came in the form of array itself :)
-            this.setState({videos})
+        YTSearch({key:API_KEY,term:'Lenovo Laptops 8th Generation'},(v)=>{ //data came in the form of array itself :)
+            this.setState({
+                videos:v,
+                selectedVideo:v[0]
+            })
         })
     }
 
     render(){
         return(
-            <React.Fragment>
+            <div className="container">
                 <SearchBar onChange={this.changeValue}/>
-                <VideoDetail video={this.state.videos[1]}/>
-                <VideoList videos={this.state.videos}/>
-            </React.Fragment>
+                <VideoDetail video={this.state.selectedVideo}/> {/* The selected video will be shown, On Every li click we are sending passing back that video to this component on line 46...IDEA*/}
+                <VideoList 
+                    videos={this.state.videos}
+                    // Passing call back all the way to the child, videoListItem. Remember only the Parent fulfills the demands of the child
+                    onVideoSelect = {video=>this.setState({selectedVideo:video})} // function passed as props all the way to the video_list_item.js
+                    />
+            </div>
         ) 
       
     }    
