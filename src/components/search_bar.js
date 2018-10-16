@@ -16,11 +16,10 @@ class SearchBar extends React.Component{
         // 'A component in which the input value depends on the state' is Controlled Component.
         // Both are great Mentors, I however go with Mosh Hamedani's Definition !!!
         return (
-            <div>
+            <div className="search-bar">
                 <input 
                     value={this.state.term} 
                     onChange={event=>this.setState({term:event.target.value})}/>
-                Current Value is : {this.state.term}
             </div>
         ) 
     }

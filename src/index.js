@@ -13,8 +13,9 @@ import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
-const API_KEY = 'AIzaSyAGJmD1kXSd5CYpWNP88fn61HokH-1IpSk';
+import './styles/styles.css';
 
+const API_KEY = 'AIzaSyAGJmD1kXSd5CYpWNP88fn61HokH-1IpSk';
 
 
 class App extends Component{
@@ -44,7 +45,7 @@ class App extends Component{
                     videos={this.state.videos}
                     // Passing call back all the way to the child, videoListItem. Remember only the Parent fulfills the demands of the child
                     onVideoSelect = {video=>this.setState({selectedVideo:video})} // function passed as props all the way to the video_list_item.js
-                    />
+                />
             </div>
         ) 
       

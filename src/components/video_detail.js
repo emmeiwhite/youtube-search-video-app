@@ -1,7 +1,7 @@
 import React from 'react';
 
 const VideoDetail = ({video})=>{
-    // In every Asynchronous call 
+    // In every Asynchronous call we are not sure about when data is going to come
     if(!video){
         // While Data has not been served by the API, we render this JSX
         return <h1>"Loading ..."</h1> 
@@ -11,7 +11,7 @@ const VideoDetail = ({video})=>{
     const youtube_url = `https://youtube.com/embed/${videoId}`;
 
     return(
-        <div className="video-detail col-md-8">
+        <div className="video-detail col-md-12 ">
             <div className="embed-responsive embed-responsive-16by9">
                 <iframe src={youtube_url} className="embed-responsive-item" title="all we need is an iframe"></iframe>
             </div>

@@ -4,14 +4,14 @@ import React from 'react';
 const VideoListItem = ({video,onVideoSelect})=>{
     const imgUrl = video.snippet.thumbnails.default.url;
     return(
-        <div>
+        <div className="video-item col-md-12">
             <li onClick={()=>onVideoSelect(video)} className="list-group-item">
                    <div className="video-list media">
                         <div className="media-left">
                             <img src={imgUrl} className="media-object" alt="Something Went Wrong ..."/>
                         </div>
 
-                        <div className="media-body">
+                        <div className="media-body list-item-title">
                             <div className="media-heading">{video.snippet.title}</div>
                         </div>
                    </div>
