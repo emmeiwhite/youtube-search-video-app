@@ -10,7 +10,8 @@ class SearchBar extends React.Component{
         return (
             <div className="search-bar col-md-12">
                 <input
-                    onChange={(event)=>this.props.onSearchTermChange(event.target.value)}/>
+                    onChange={(event)=>this.props.onSearchTermChange(event.target.value)}
+                    placeholder="Enter term to search"/>
             </div>
         ) 
     }
