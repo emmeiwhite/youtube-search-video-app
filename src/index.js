@@ -25,21 +25,25 @@ class App extends Component{
         this.state = {
             videos:[], // Initially there wouldn't be any call made to the API, 
             selectedVideo:null
-        }
+        };
 
-        // For now we making the API call here in the constructor only, but it's not a good practice
-        YTSearch({key:API_KEY,term:'Lenovo Laptops 8th Generation'},(v)=>{ //data came in the form of array itself :)
+        this.videoSearch('fruits');
+    }
+
+    videoSearch(term){
+        console.log(term);
+          // For now we making the API call here in the constructor only, but it's not a good practice
+        YTSearch({key:API_KEY,term:term},(v)=>{ //data came in the form of array itself :)
             this.setState({
                 videos:v,
                 selectedVideo:v[0]
             })
         })
     }
-
     render(){
         return(
             <div className="container">
-                <SearchBar onChange={this.changeValue}/>
+                <SearchBar onSearchTermChange={(term)=>this.videoSearch(term)}/>
                 <VideoDetail video={this.state.selectedVideo}/> {/* The selected video will be shown, On Every li click we are sending passing back that video to this component on line 46...IDEA*/}
                 <VideoList 
                     videos={this.state.videos}
